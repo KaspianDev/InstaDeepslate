@@ -1,0 +1,4 @@
+name: InstaDeepslate
+version: '${version}'
+main: com.github.kaspiandev.instadeepslate.InstaDeepslate
+api-version: '1.19'
