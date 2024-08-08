@@ -1,6 +1,6 @@
-# NBTGui
+# InstaDeepslate
 
-NBTGui is a minecraft plugin that enabled insta mining for
+InstaDeepslate is a minecraft plugin that enabled insta mining for
 deepslate if you have Haste II and Efficiency V Netherite Pickaxe.
 
 # Future plans:
