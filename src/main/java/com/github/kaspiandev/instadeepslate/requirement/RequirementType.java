@@ -6,7 +6,8 @@ import java.util.function.Function;
 public enum RequirementType {
 
     ENCHANTMENT(EnchantmentRequirement::new),
-    ITEM_TYPE(ItemTypeRequirement::new);
+    ITEM_TYPE(ItemTypeRequirement::new),
+    EFFECT(EffectRequirement::new);
 
     private final Function<Map<String, Object>, Requirement> buildFunction;
 
@@ -14,7 +15,6 @@ public enum RequirementType {
         this.buildFunction = buildFunction;
     }
 
-    // TODO: Use optionals for safe parsing
     public static Requirement buildMatching(Map<String, Object> data) {
         RequirementType type = RequirementType.valueOf((String) data.get("type"));
         return type.build(data);
