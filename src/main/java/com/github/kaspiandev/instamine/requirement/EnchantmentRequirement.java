@@ -1,4 +1,4 @@
-package com.github.kaspiandev.instadeepslate.requirement;
+package com.github.kaspiandev.instamine.requirement;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
@@ -34,8 +34,6 @@ public class EnchantmentRequirement extends Requirement {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return false;
 
-        System.out.println(meta.getEnchantLevel(enchantment));
-        System.out.println(meta.getEnchantLevel(enchantment) >= level);
         return meta.getEnchantLevel(enchantment) >= level;
     }
 

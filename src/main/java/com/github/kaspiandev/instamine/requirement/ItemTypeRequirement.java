@@ -1,4 +1,4 @@
-package com.github.kaspiandev.instadeepslate.requirement;
+package com.github.kaspiandev.instamine.requirement;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -24,10 +24,6 @@ public class ItemTypeRequirement extends Requirement {
 
     @Override
     public boolean check(Player player, ItemStack item) {
-        System.out.println(item.getType());
-        System.out.println(material);
-        System.out.println(item.getType().equals(material));
-
         return item.getType().equals(material);
     }
 

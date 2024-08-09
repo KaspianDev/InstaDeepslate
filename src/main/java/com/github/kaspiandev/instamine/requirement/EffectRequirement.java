@@ -1,4 +1,4 @@
-package com.github.kaspiandev.instadeepslate.requirement;
+package com.github.kaspiandev.instamine.requirement;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -33,9 +33,6 @@ public class EffectRequirement extends Requirement {
         PotionEffect potionEffect = player.getPotionEffect(effect);
         if (potionEffect == null) return false;
 
-        System.out.println(potionEffect.getAmplifier());
-        System.out.println(amplifier);
-        System.out.println(potionEffect.getAmplifier() >= amplifier);
         return potionEffect.getAmplifier() >= amplifier;
     }
 

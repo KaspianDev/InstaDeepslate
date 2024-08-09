@@ -1,7 +1,10 @@
-package com.github.kaspiandev.instadeepslate.listener;
+package com.github.kaspiandev.instamine.listener;
 
-import com.github.kaspiandev.instadeepslate.InstaDeepslate;
-import com.github.kaspiandev.instadeepslate.requirement.Requirement;
+import com.github.kaspiandev.instamine.InstaMine;
+import com.github.kaspiandev.instamine.event.BlockInstaMineEvent;
+import com.github.kaspiandev.instamine.event.BlockPreInstaMineEvent;
+import com.github.kaspiandev.instamine.requirement.Requirement;
+import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,25 +16,28 @@ import java.util.List;
 
 public class BlockMineListener implements Listener {
 
-    private final InstaDeepslate plugin;
+    private final InstaMine plugin;
 
-    public BlockMineListener(InstaDeepslate plugin) {
+    public BlockMineListener(InstaMine plugin) {
         this.plugin = plugin;
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onMine(BlockDamageEvent event) {
-        System.out.println("a");
         Block block = event.getBlock();
         List<Requirement> requirements = plugin.getRequirementManager().getRequirements(block.getType());
-        System.out.println(requirements);
         if (requirements.isEmpty()) return;
 
         Player player = event.getPlayer();
         ItemStack item = event.getItemInHand();
         if (requirements.stream().anyMatch((requirement) -> !requirement.check(player, item))) return;
 
+        BlockPreInstaMineEvent instaMineEvent = new BlockPreInstaMineEvent(block, player, item);
+        Bukkit.getPluginManager().callEvent(instaMineEvent);
+        if (instaMineEvent.isCancelled()) return;
+
         event.setInstaBreak(true);
+        Bukkit.getPluginManager().callEvent(new BlockInstaMineEvent(block, player, item));
     }
 
 }

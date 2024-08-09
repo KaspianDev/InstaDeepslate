@@ -1,4 +1,4 @@
-package com.github.kaspiandev.instadeepslate.requirement;
+package com.github.kaspiandev.instamine.requirement;
 
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;

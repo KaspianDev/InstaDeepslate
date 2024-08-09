@@ -1,25 +1,27 @@
-package com.github.kaspiandev.instadeepslate;
+package com.github.kaspiandev.instamine;
 
-import com.github.kaspiandev.instadeepslate.listener.BlockMineListener;
-import com.github.kaspiandev.instadeepslate.requirement.EffectRequirement;
-import com.github.kaspiandev.instadeepslate.requirement.EnchantmentRequirement;
-import com.github.kaspiandev.instadeepslate.requirement.ItemTypeRequirement;
-import com.github.kaspiandev.instadeepslate.requirement.RequirementManager;
+import com.github.kaspiandev.instamine.listener.BlockMineListener;
+import com.github.kaspiandev.instamine.requirement.*;
 import org.bukkit.Material;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.Arrays;
 import java.util.List;
 
-public final class InstaDeepslate extends JavaPlugin {
+public final class InstaMine extends JavaPlugin {
 
     private RequirementManager requirementManager;
 
     @Override
     public void onEnable() {
+        Arrays.stream(RequirementType.values())
+              .map(RequirementType::getRequirementClass)
+              .forEach(ConfigurationSerialization::registerClass);
+
         getConfig().options().copyDefaults(true);
-        
         getConfig().addDefault(
                 "blocks." + Material.DEEPSLATE.name(),
                 List.of(

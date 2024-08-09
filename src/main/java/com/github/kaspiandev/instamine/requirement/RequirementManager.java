@@ -1,6 +1,6 @@
-package com.github.kaspiandev.instadeepslate.requirement;
+package com.github.kaspiandev.instamine.requirement;
 
-import com.github.kaspiandev.instadeepslate.InstaDeepslate;
+import com.github.kaspiandev.instamine.InstaMine;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 
@@ -10,12 +10,13 @@ import java.util.Map;
 
 public class RequirementManager {
 
-    private final InstaDeepslate plugin;
+    private final InstaMine plugin;
     private final Map<Material, List<Requirement>> blockRequirements;
 
-    public RequirementManager(InstaDeepslate plugin) {
+    public RequirementManager(InstaMine plugin) {
         this.plugin = plugin;
         this.blockRequirements = new HashMap<>();
+        load();
 
     }
 
