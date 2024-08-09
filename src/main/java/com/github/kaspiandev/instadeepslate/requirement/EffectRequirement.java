@@ -33,6 +33,9 @@ public class EffectRequirement extends Requirement {
         PotionEffect potionEffect = player.getPotionEffect(effect);
         if (potionEffect == null) return false;
 
+        System.out.println(potionEffect.getAmplifier());
+        System.out.println(amplifier);
+        System.out.println(potionEffect.getAmplifier() >= amplifier);
         return potionEffect.getAmplifier() >= amplifier;
     }
 

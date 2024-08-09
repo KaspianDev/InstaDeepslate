@@ -35,11 +35,13 @@ public class RequirementManager {
         for (String blockName : blocksSection.getKeys(false)) {
             Material blockType = Material.valueOf(blockName);
 
-            List<Requirement> requirements = blocksSection.getMapList(blockName).stream()
-                                                          .map((map) -> RequirementType.buildMatching((Map<String, Object>) map))
-                                                          .toList();
-            Requirement requirement = RequirementType.buildMatching();
+            List<Requirement> requirements = (List<Requirement>) blocksSection.getList(blockName);
+            blockRequirements.put(blockType, requirements);
         }
+    }
+
+    public List<Requirement> getRequirements(Material block) {
+        return blockRequirements.getOrDefault(block, List.of());
     }
 
 }

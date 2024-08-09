@@ -24,6 +24,10 @@ public class ItemTypeRequirement extends Requirement {
 
     @Override
     public boolean check(Player player, ItemStack item) {
+        System.out.println(item.getType());
+        System.out.println(material);
+        System.out.println(item.getType().equals(material));
+
         return item.getType().equals(material);
     }
 

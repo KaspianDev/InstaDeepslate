@@ -34,6 +34,8 @@ public class EnchantmentRequirement extends Requirement {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return false;
 
+        System.out.println(meta.getEnchantLevel(enchantment));
+        System.out.println(meta.getEnchantLevel(enchantment) >= level);
         return meta.getEnchantLevel(enchantment) >= level;
     }
 
