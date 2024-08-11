@@ -1,8 +1,11 @@
 package com.github.kaspiandev.instamine;
 
+import com.github.kaspiandev.instamine.command.MainCommand;
+import com.github.kaspiandev.instamine.command.SubCommandRegistry;
 import com.github.kaspiandev.instamine.listener.BlockMineListener;
 import com.github.kaspiandev.instamine.requirement.*;
 import org.bukkit.Material;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,6 +39,15 @@ public final class InstaMine extends JavaPlugin {
         requirementManager = new RequirementManager(this);
 
         getServer().getPluginManager().registerEvents(new BlockMineListener(this), this);
+
+        PluginCommand pluginCommand = getCommand("instamine");
+        if (pluginCommand != null) {
+            SubCommandRegistry subCommandRegistry = new SubCommandRegistry(this);
+            MainCommand mainCommand = new MainCommand(this, subCommandRegistry);
+
+            pluginCommand.setTabCompleter(mainCommand);
+            pluginCommand.setExecutor(mainCommand);
+        }
     }
 
     public RequirementManager getRequirementManager() {

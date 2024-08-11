@@ -3,3 +3,5 @@ version: '${version}'
 main: com.github.kaspiandev.instamine.InstaMine
 api-version: '1.19'
 author: KaspianDev
+commands:
+  instamine: { }
