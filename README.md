@@ -51,6 +51,16 @@ Set the required effect type and amplifier that the player needs to have.
   effect: haste
 ```
 
+### Permission
+
+Set the permission player needs to have.
+
+```yml
+- ==: com.github.kaspiandev.instamine.requirement.PermissionRequirement
+  type: PERMISSION
+  permission: "instamine.obsidian"
+```
+
 ## Example configuration
 
 ```yml

@@ -5,7 +5,8 @@ public enum RequirementType {
     ENCHANTMENT(EnchantmentRequirement.class),
     ITEM_TYPE(ItemTypeRequirement.class),
     EFFECT(EffectRequirement.class),
-    MODEL(ModelDataRequirement.class);
+    MODEL(ModelDataRequirement.class),
+    PERMISSION(PermissionRequirement.class);
 
     private final Class<? extends Requirement> clazz;
 

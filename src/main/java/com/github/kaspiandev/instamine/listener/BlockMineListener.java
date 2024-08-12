@@ -37,6 +37,7 @@ public class BlockMineListener implements Listener {
         if (instaMineEvent.isCancelled()) return;
 
         event.setInstaBreak(true);
+        block.getWorld().playSound(block.getLocation(), block.getBlockData().getSoundGroup().getBreakSound(), 1, 1);
         Bukkit.getPluginManager().callEvent(new BlockInstaMineEvent(block, player, item));
     }
 
