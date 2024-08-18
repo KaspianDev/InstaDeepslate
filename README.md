@@ -1,5 +1,3 @@
-# Repo will be renamed soon
-
 # InstaMine
 
 InstaMine is a minecraft plugin that enables insta mining for
@@ -59,6 +57,26 @@ Set the permission player needs to have.
 - ==: com.github.kaspiandev.instamine.requirement.PermissionRequirement
   type: PERMISSION
   permission: "instamine.obsidian"
+```
+
+### World
+
+Set the world name player needs to be in.
+
+```yml
+- ==: com.github.kaspiandev.instamine.requirement.WorldRequirement
+  type: WORLD
+  world: "world"
+```
+
+### Dimension
+
+Set the dimension type the player need to be in.
+
+```yml
+- ==: com.github.kaspiandev.instamine.requirement.DimensionRequirement
+  type: DIMENSION
+  dimension: THE_END
 ```
 
 ## Example configuration
@@ -133,14 +151,15 @@ depend: [ InstaMine ]
 
 The API currently only contains 2 events:
 
-- `BlockPreInstaMineEvent` - Triggers when all requirements are validated successfully.  
+- `BlockPreInstaMineEvent` - Triggers when all requirements are validated
+  successfully.  
   Cancelling it will stop the insta mining from triggering.
 - `BlockInstaMineEvent` - Triggers when the event above wasn't cancelled.
 
 ## Building:
 
 ```sh
-git clone https://github.com/KaspianDev/InstaDeepslate.git
+git clone https://github.com/KaspianDev/InstaMine.git
 ```
 
 ```sh

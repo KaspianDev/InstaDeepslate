@@ -6,7 +6,9 @@ public enum RequirementType {
     ITEM_TYPE(ItemTypeRequirement.class),
     EFFECT(EffectRequirement.class),
     MODEL(ModelDataRequirement.class),
-    PERMISSION(PermissionRequirement.class);
+    PERMISSION(PermissionRequirement.class),
+    WORLD(WorldRequirement.class),
+    DIMENSION(DimensionRequirement.class);
 
     private final Class<? extends Requirement> clazz;
 
