@@ -24,5 +24,5 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ steps.tag_name.outputs.sha_short }}
-        files: ./build/libs/FishyBusiness-*.jar
+        files: ./build/libs/InstaMine-*.jar
         token: ${{ secrets.RELEASE_TOKEN }}
