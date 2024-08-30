@@ -1,5 +1,7 @@
 # InstaMine
 
+![](assets/instamine.png)
+
 InstaMine is a minecraft plugin that enables insta mining for
 any block thanks to a requirement system.
 
